@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: previews
+#
+#  id         :integer          not null, primary key
+#  note       :string
+#  comment    :string
+#  user_id    :integer
+#  recipe_id  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  note: MyString
+  comment: MyString
+  user_id: 
+  recipe_id: 
+
+two:
+  note: MyString
+  comment: MyString
+  user_id: 
+  recipe_id: 

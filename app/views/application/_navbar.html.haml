@@ -1,0 +1,78 @@
+.navbar-wrapper{style:"padding-bottom: 20px;"}
+  .container-fluid
+    %nav.navbar.navbar-fixed-top
+      .container
+        .navbar-header
+          %button{type: 'button', class: 'navbar-toggle collapsed', 'data-toggle': 'collapse', 'data-target': '#navbar'}
+            %span{class: "sr-only"}
+              Toggle navigation
+            %span{class: "icon-bar"}
+            %span{class: "icon-bar"}
+            %span{class: "icon-bar"}
+          %a
+            = image_tag 'logo.png', style: 'max-width:50px; margin-top: 3px; margin-left: -40px;'
+        #navbar.navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li.active
+              = link_to "ACCUEIL", root_path
+            %li
+              = link_to "RECETTES", recipes_path
+            %li.dropdown
+              %a.dropdown-toggle{ 'data-toggle': 'dropdown', 'role':'button', 'aria-haspopup':true, 'aria-expanded':false}
+                CATEGORIES
+                %span.caret
+              %ul.dropdown-menu
+                %li.dropdown
+                  %a.dropdown-toggle
+                    = link_to "Toutes les categories", categories_path
+                %li.dropdown
+                  %a.dropdown-toggle
+                    = link_to "Nouvelle catégorie", new_category_path
+            %li
+              = link_to "INGREDIENTS", ingredients_path
+
+          %ul.nav.navbar-nav.pull-right
+            - if user_signed_in?
+              %li
+                = link_to "Profil", edit_user_registration_path
+              %li= link_to "SE DECONNECTER", destroy_user_session_path, method: :delete
+            - else
+              %li.dropdown
+                %a.dropdown-toggle{ 'data-toggle':'dropdown'}
+                  %b
+                    SE CONNECTER
+                    %span.caret
+                %ul#login-dp.dropdown-menu
+                  %li
+                    .row
+                      .col-md-12
+                        Se connecter avec
+                        .social-buttons
+                          %a.btn.btn-fb
+                            %i.fa.fa-facebook
+                            Facebook
+                          %a.btn.btn-tw
+                            %i.fa.fa-twitter
+                            Twitter
+                        ou
+
+                        %form.form{'role':'form', 'method':'post', 'accept-charset':'UTF-8', 'id':'login-nav'}
+                        = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+                          .form-group
+                            %label.sr-only{'for':'exampleInputEmail2'}
+                            Email address
+                            = f.email_field :email, autofocus: true, class: "form-control"
+                            %label.sr-only{'for':'exampleInputPassword2'}
+                            Password
+                            = f.password_field :password, autocomplete: "off", class: "form-control"
+                            .help-block.text-right
+                              %a
+                                Mot de passe oublié ?
+                          .form-group
+                            %button.btn.btn-primary.btn-block{'type':'submit', 'id':'btConnexion', 'name':'btConnexion'}
+                              Se connecter
+                          .checkbox
+                            %label
+                              %input{'type':'checkbox'}
+                              Rester connecter
+              %li= link_to "S'INSCRIRE", new_user_registration_path

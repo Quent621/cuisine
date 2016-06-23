@@ -1,0 +1,89 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="row">
+        <div class="title">CATEGORIES</div>
+        <% @categories.each do |category| %>
+            <div class="col-md-4 col-sm-6">
+              <div class="catimg center-block">
+                <h2><%= category.name %>
+                  <%= link_to edit_category_path(category), class: 'buttoncat' do %>
+                      <i class="fa fa-pencil"></i>
+                  <% end %>
+                  <%= link_to category, class: 'buttoncat', method: :delete, data: {confirm: 'Are you sure?'} do %>
+                      <i class="fa fa-times"></i>
+                  <% end %>
+                </h2>
+                <%= link_to category_recipes_path(category), style: 'display: block;' do %>
+                    <%= image_tag category.photo, class: 'media-object image-responsive' %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!--<div class="container-fluid">-->
+<!--<div class="row">-->
+<!--<div class="col-md-10 col-md-offset-1">-->
+<!--<div class="row">-->
+<!--<div class="title">CATEGORIES</div>-->
+<!--<div class="boxcategory">-->
+<!--<div class="row category-child" style="margin-top:20px">-->
+<!--
+<% @categories.each do |category| %>-->
+    <!--<div class="col-md-4 col-sm-6 thumb">-->
+    <!--<a class="thumbnail center-block" href="#">-->
+    <!--<%= image_tag category.photo.url(:thumb), class: 'media-object image-responsive' %>-->
+    <!--<div class="wrapper">-->
+    <!--<div class="caption post-content">-->
+    <!--<div class="heros">-->
+    <!--<div class="zoomarticle">-->
+    <!--<h1><span><%= category.name %></span></h1>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</a>-->
+    <!--</div>-->
+    <!--
+<% end %>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--<p id="notice"><%= notice %></p>
+
+  <div class="heros"><h1>Listing Categories</h1></div>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Recipe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Edit', edit_category_path(category) %></td>
+        <td><%= link_to 'Destroy', category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>-->
+
+<%= %>

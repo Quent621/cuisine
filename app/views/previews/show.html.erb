@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @preview.note %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @preview.comment %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @preview.user %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @preview.recipe %>
+</p>
+
+<%= link_to 'Edit', edit_preview_path(@preview) %> |
+<%= link_to 'Back', previews_path %>

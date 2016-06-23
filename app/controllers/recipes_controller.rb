@@ -5,6 +5,11 @@ class RecipesController < ApplicationController
   # GET /recipes.json
   def index
     @recipes = Recipe.all
+    if params[:search]
+      @recipes = Recipe.search(params[:search]).order("created_at DESC")
+    else
+      @recipes = Recipe.all.order("created_at DESC")
+    end
   end
 
   # GET /recipes/1
@@ -25,15 +30,11 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
-
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to @recipe, notice: 'Recipe was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe }
-      else
-        format.html { render :new }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
-      end
+    @recipe.user = current_user
+    if @recipe.save
+      redirect_to @recipe, notice: 'Recipe was successfully created.'
+    else
+      render :new
     end
   end
 
@@ -62,13 +63,13 @@ class RecipesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_recipe
-      @recipe = Recipe.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def recipe_params
-      params.require(:recipe).permit(:name_recipe, :duration, :photo)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def recipe_params
+    params.require(:recipes).permit(:name, :description, :duration, :photo, :user_id, :category_id, :ingredient_id, :difficulty, :preparation, :repose, :baking)
+  end
 end

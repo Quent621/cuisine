@@ -1,0 +1,158 @@
+
+
+body {
+    padding: 20px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #f7f7f7;
+}
+
+.lib-panel {
+    margin-bottom: 20Px;
+}
+.lib-panel img {
+    width: 100%;
+    background-color: transparent;
+}
+
+.lib-panel .row,
+.lib-panel .col-md-8 {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+
+
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+}
+
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+
+
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    text-align: justify;
+    font-size: 13px;
+}
+
+.lib-panel .lib-row.lib-desc a{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 20px;
+}
+
+.lib-panel.lib-social{
+    position: absolute;
+    bottom:0;
+}
+
+.row-margin-bottom {
+    margin-bottom: 20px;
+}
+
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.maxsize{
+    position: relative;
+    height: 400px;
+
+    overflow: hidden;
+    object-fit: cover;
+
+}
+
+.maxsize img {
+    max-height:400px;
+    object-fit: cover;
+    -webkit-transition: 0.4s ease;
+    transition: 0.4s ease;
+
+}
+
+.maxsize img:hover{
+    max-height: 405px;
+    -webkit-transform: scale(1.08);
+    transform: scale(1.08);
+
+}
+
+.social:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.txt-railway{
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+}
+.social {
+    -webkit-transform: scale(0.8);
+    /* Browser Variations: */
+
+    -moz-transform: scale(0.8);
+    -o-transform: scale(0.8);
+    -webkit-transition-duration: 0.5s;
+    -moz-transition-duration: 0.5s;
+    -o-transition-duration: 0.5s;
+}
+
+/*
+    Multicoloured Hover Variations
+*/
+
+#social-fb:hover {
+    color: #3B5998;
+}
+#social-tw:hover {
+    color: #4099FF;
+}
+#social-gp:hover {
+    color: #d34836;
+}
+#social-em:hover {
+    color: #f39c12;
+}
+
+.btn-pref .btn {
+    -webkit-border-radius:0 !important;
+}
+
+.titrebutton{
+    padding:8px;
+    font-size: 15px;
+
+}
+.montserrat{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.test p{
+    border-right:2px #d9d9d9 solid;
+    padding-right: 30px;
+    text-align: justify;
+}
+
+.col-md-6{
+    text-align: justify;
+}

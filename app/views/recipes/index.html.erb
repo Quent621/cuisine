@@ -1,31 +1,102 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
-<h1>Listing Recipes</h1>
+<!--<h1>Listing Recipes</h1>-->
 
-<table>
-  <thead>
-    <tr>
-      <th>Name recipe</th>
-      <th>Duration</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!--<table>-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th>Name</th>-->
+<!--<th>Duration</th>-->
+<!--<th>Photo</th>-->
+<!--<th>User</th>-->
+<!--<th colspan="3"></th>-->
+<!--</tr>-->
+<!--</thead>-->
 
-  <tbody>
-    <% @recipes.each do |recipe| %>
-      <tr>
-        <td><%= recipe.name_recipe %></td>
-        <td><%= recipe.duration %></td>
-        <td><%= recipe.photo %></td>
-        <td><%= link_to 'Show', recipe %></td>
-        <td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>
-        <td><%= link_to 'Destroy', recipe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--<tbody>-->
+<!--
+<% @recipes.each do |recipe| %>-->
+    <!--<tr>-->
+    <!--<td><%= recipe.name %></td>-->
+    <!--<td><%= recipe.duration %></td>-->
+    <!--<td><%= recipe.photo %></td>-->
+    <!--<td><%= recipe.user %></td>-->
+    <!--<td><%= link_to 'Show', recipe %></td>-->
+    <!--<td><%= link_to 'Edit', edit_recipe_path(recipe) %></td>-->
+    <!--<td><%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
+    <!--</tr>-->
+    <!--
+<% end %>-->
 
-<br>
+<!--</tbody>-->
+<!--</table>-->
 
-<%= link_to 'New Recipe', new_recipe_path %>
+<div class="recipe">
+  <center><%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
+      <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
+      <%= submit_tag "Search", :name => nil %></center><br>
+  <% end %>
+  <div class="row">
+    <div class="col-md-9">
+      <% @recipes.each do |recipe| %>
+          <div class="well">
+            <div class="media">
+              <a class="pull-left">
+                <li class="zoomarticle">
+                  <div class="article_big_img">
+                    <%= image_tag recipe.photo.url(:medium), class: 'media-object' %>
+                  </div>
+                </li>
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading" style="float: left">
+                  <%= recipe.name %>
+                </h4>
+                <p style="float: right">
+                  Recette par <%= recipe.user.firstname %>
+                </p>
+                <div style="clear: both"></div>
+                <p><%= recipe.description %></p>
+                <ul class="list-inline list-unstyled">
+                  <li><span><i class="glyphicon glyphicon-calendar"></i><%= recipe.created_at %></span></li>
+                  <li>|</li>
+                  <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
+                  <li>|</li>
+                  <li>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star-half-o"></span>
+                    <span class="fa fa-star-o"></span>
+                  </li>
+                  <li>|</li>
+                  <li>
+                    <%= recipe.category.name if recipe.category.present? %>
+                  </li>
+                </ul>
+                <%= link_to 'Voir la recette !', recipe %>
+                <%= link_to 'Edit', edit_recipe_path(recipe) %>
+                <%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you sure?'} %>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+    <div class="col-md-3">
+      <aside>
+        <a class="twitter-timeline" width="300" height="1000" data-widget-id="691342446618349568">Tweets de @BlogTHCF</a>
+        <script>!function (d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+          if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+          }
+        }(document, "script", "twitter-wjs");</script>
+      </aside>
+    </div>
+  </div>
+  <br>
+  <%= link_to 'New Recipe', new_recipe_path %>
+</div>
