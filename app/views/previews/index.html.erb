@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Previews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Note</th>
+      <th>Comment</th>
+      <th>User</th>
+      <th>Recipe</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @previews.each do |preview| %>
+      <tr>
+        <td><%= preview.note %></td>
+        <td><%= preview.comment %></td>
+        <td><%= preview.user %></td>
+        <td><%= preview.recipe %></td>
+        <td><%= link_to 'Show', preview %></td>
+        <td><%= link_to 'Edit', edit_preview_path(preview) %></td>
+        <td><%= link_to 'Destroy', preview, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Preview', new_preview_path %>

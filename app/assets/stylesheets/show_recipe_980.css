@@ -1,0 +1,21 @@
+
+@media all and (max-width: 991px)
+{
+    .test p{
+        border-right:none;
+        padding-right: 0px;
+        padding-bottom: 15px;
+        text-align: justify;
+    }
+    .lib-ingredient-seperator{
+        margin:auto;
+        height: 2px;
+        width: 300px;
+        background-color: #d9d9d9;
+    }
+
+    .recipe aside{
+        display:none;
+    }
+
+}

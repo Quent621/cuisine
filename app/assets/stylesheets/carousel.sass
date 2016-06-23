@@ -1,0 +1,68 @@
+.parallax-window
+
+  width: 100%
+  margin-top: -50px
+  min-height: 400px
+
+.entete
+  position: relative
+  margin-bottom: 0
+
+  div
+
+    width: 100%
+    height: 50px
+    top: -90px
+    right: 0
+  .carouentete
+    background: url(basentete.png)
+    background-size: cover
+    background-position: top
+    box-shadow: 0px -5px 5px 0px rgba(0, 0, 0, 0.18)
+
+.hero
+  position: absolute
+  max-height: 100px
+  max-width: 650px
+  top: 15%
+  right: 35%
+  z-index: 3
+  color: #fff
+  text-align: center
+  text-shadow: 1px 1px 0 rgba(0,0,0,.75)
+
+
+.hero h1
+  font-size: 6em
+  font-weight: bold
+  margin: 0
+  padding: 0
+
+.block
+  position: relative
+  margin-bottom: 460px
+  border-bottom: 1px #f6fdff solid
+
+
+
+  div
+    position: absolute
+    width: 100%
+    height: 450px
+    top: -80px
+    right: 0
+
+  .carousel
+    background: url(indexflou.jpg)
+    background-size: cover
+    box-shadow: 0px -1px 10px 0px rgba(0, 0, 0, 0.05)
+    border-radius: 2px
+
+  .carouselflou
+    background: url(index.jpg)
+    background-size: cover
+    transition: opacity .3s ease-in
+
+    opacity: 1
+    &:hover
+      opacity: 0

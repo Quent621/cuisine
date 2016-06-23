@@ -1,0 +1,60 @@
+<div class="parallax-window" data-parallax="scroll" data-image-src="<%= image_url 'index.jpg' %>">
+</div>
+
+<div class="slide-1"></div>
+<div class="hero">
+  <hgroup>
+    <h1>MyEggCooking</h1>
+    <h3>Apprenez à cuisiner, n'importe ou, n'importe quand !</h3>
+  </hgroup>
+</div>
+
+
+<div class="entete">
+  <div class="carouentete"></div>
+</div>
+<body>
+<div class="fond">
+  <div class="pellicule">
+  </div>
+  <div class="container">
+    <div class="row">
+      <% @categories.each do |category| %>
+          <div class="col-md-4">
+            <div class="carde">
+              <div class="card hovercard">
+                <div class="cardheader">
+                  <%= image_tag category.photo, class: 'media-object image-responsive' %>
+                </div>
+                <div class="cardbody">
+                  <div class="avatar">
+                    <%= image_tag category.photo, class: 'media-object image-responsive' %>
+                  </div>
+                  <div class="info">
+                    <div class="title">
+                      <a target="_blank" href="http://scripteden.com/"><%= category.name %></a>
+                    </div>
+                    <div class="desc">Toutes les recettes pour <%= category.name %></div>
+                  </div>
+                  <div class="bottom">
+                    <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a class="btn btn-danger btn-sm" rel="publisher"
+                       href="https://plus.google.com/+ahmshahnuralam">
+                      <i class="fa fa-google-plus"></i>
+                    </a>
+                    <a class="btn btn-primary btn-sm" rel="publisher"
+                       href="https://plus.google.com/shahnuralam">
+                      <i class="fa fa-facebook"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</body>
