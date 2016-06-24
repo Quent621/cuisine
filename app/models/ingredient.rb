@@ -13,7 +13,7 @@
 class Ingredient < ActiveRecord::Base
 
   belongs_to :recipe
-  enum unity: [:grams, :liter, :cs, :cc]
+  enum unity: [:kg, :g, :mg, :l, :cl, :ml, :soupe, :café]
 end
 
 
