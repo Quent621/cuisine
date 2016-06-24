@@ -5,18 +5,19 @@ app.controller('RecipeCtrl', ['$scope', '$http', function ($scope, $http) {
     $scope.ingredients = [];
 
     $scope.addIngredient = function () {
-        data = {ingredient: {name: $scope.test}};
+        data = {ingredient: {name: $scope.name, quantity: $scope.quantity}};
         $http.post('/ingredients.json', data)
             .success(function (response, status, headers, config) {
-                console.log(status);
-                console.log(response);
-                $scope.ingredients.push(response.name);
-                $scope.test = '';
+                var ingredient = {
+                    name: angular.copy($scope.name),
+                    quantity: angular.copy($scope.quantity)
+                };
+                $scope.name = '';
+                $scope.quantity = '';
+                $scope.ingredients.push(ingredient);
             })
             .error(function (response, status, headers, config) {
                 console.log('Error');
             });
     };
 }]);
-
-

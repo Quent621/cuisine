@@ -123,3 +123,4 @@ $(document).ready(function() {
         $(this).removeClass("btn-default").addClass("btn-primary");
     });
 });
+
