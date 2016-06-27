@@ -32,6 +32,10 @@
 <!--<%= link_to 'Back', recipes_path %>-->
 
 <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Amatic+SC:700|Montserrat' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Playfair+Display' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Montserrat' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lobster' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:300' %>
 
 <div class="container">
   <hr>
@@ -102,7 +106,7 @@
             <div class="col-md-12">
               <div class="test col-md-6">
                 <h2>Ingrédients</h2>
-                <table class="table table-striped table-condensed">
+                <table class="table table-striped custab">
                   <% @recipe.ingredients.each do |ingredient| %>
                     <tbody>
                     <tr>
@@ -129,11 +133,15 @@
                   <strong>Temps de cuisson :</strong>
                   <%= @recipe.baking %>
                 </p>
-                <h3>Etape 1 :</h3>
-                <p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et
-                  complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat
-                  eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et
-                  quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
+                <p>
+                  <strong>Nombre totale d'étapes :</strong>
+                  <%= @recipe.steps.count %>
+                </p>
+
+                <% @recipe.steps.each_with_index do |step, index| %>
+                    <h3>Etape <%= "#{index + 1}" %></h3>
+                    <h5><%= "#{step.content}" %></h5>
+                <% end %>
               </div>
             </div>
           </div>
