@@ -14,6 +14,10 @@
 #  photo_updated_at   :datetime
 #  description        :text
 #  category_id        :integer
+#  difficulty         :integer
+#  preparation        :text
+#  baking             :text
+#  repose             :text
 #
 
 require 'test_helper'

@@ -102,7 +102,16 @@
             <div class="col-md-12">
               <div class="test col-md-6">
                 <h2>Ingrédients</h2>
-                <p>Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque discrimen vitae vexatus nihil fateri conpulsus est.</p>
+                <table class="table table-striped table-condensed">
+                  <% @recipe.ingredients.each do |ingredient| %>
+                    <tbody>
+                    <tr>
+                      <td>- <%= ingredient.name %></td>
+                      <td>- <%= ingredient.quantity %> <%= ingredient.unity %></td>
+                    </tr>
+                    </tbody>
+                  <% end %>
+                </table>
               </div>
               <div class="lib-ingredient-seperator"></div>
               <div class="col-md-6">
@@ -120,8 +129,11 @@
                   <strong>Temps de cuisson :</strong>
                   <%= @recipe.baking %>
                 </p>
-                  <h3>Etape 1 :</h3>
-                <p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
+                <h3>Etape 1 :</h3>
+                <p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et
+                  complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat
+                  eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et
+                  quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
               </div>
             </div>
           </div>

@@ -14,6 +14,10 @@
 #  photo_updated_at   :datetime
 #  description        :text
 #  category_id        :integer
+#  difficulty         :integer
+#  preparation        :text
+#  baking             :text
+#  repose             :text
 #
 
 class Recipe < ActiveRecord::Base
@@ -22,7 +26,13 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
   belongs_to :category
-  belongs_to :ingredient
+  has_many :ingredients
+  has_many :steps
+
+  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :steps
+
+
   enum difficulty: [:easy, :medium, :hard]
 
   validates :user_id, presence: true
