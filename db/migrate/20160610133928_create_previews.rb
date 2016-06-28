@@ -4,7 +4,7 @@ class CreatePreviews < ActiveRecord::Migration
       t.string :note
       t.string :comment
       t.references :user, index: true, foreign_key: true
-      t.references :recipes, index: true, foreign_key: true
+      t.references :recipe, index: true, foreign_key: true
 
       t.timestamps null: false
     end
