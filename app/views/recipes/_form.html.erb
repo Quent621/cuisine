@@ -1,188 +1,240 @@
-<!--<div ng-app="recipe" ng-controller="RecipeCtrl">-->
-  <!--<%= form_for(@recipe) do |f| %>-->
-      <!--<% if @recipe.errors.any? %>-->
-          <!--<div id="error_explanation">-->
-            <!--<h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>-->
-
-            <!--<ul>-->
-              <!--<% @recipe.errors.full_messages.each do |message| %>-->
-                  <!--<li><%= message %></li>-->
-              <!--<% end %>-->
-            <!--</ul>-->
-          <!--</div>-->
-      <!--<% end %>-->
-
-      <!--<div class="field">-->
-        <!--Nom de la recette<br>-->
-        <!--<%= f.text_field :name %>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-        <!--Temps de préparation<br>-->
-        <!--<%= f.text_field :duration %>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-        <!--Description de la recette<br>-->
-        <!--<%= f.text_area :description %>-->
-      <!--</div>-->
-
-      <!--<div class="field">-->
-        <!--Choisissez la categorie<br>-->
-        <!--<%= f.collection_select :category_id, Category.all, :id, :name %>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-        <!--Ajoutez les ingrédients<br>-->
-        <!--<input type="text" ng-model="test">-->
-        <!--<button type="button" ng-click="addIngredient()"></button>-->
-        <!--<ul>-->
-          <!--<li ng-repeat="ingredient in ingredients track by $index">-->
-            <!--{{ingredient}}-->
-          <!--</li>-->
-        <!--</ul>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-        <!--Choisissez la categorie<br>-->
-      <!--</div>-->
-      <!--<div class="field">-->
-        <!--Photo<br>-->
-        <!--<%= f.file_field :photo %>-->
-      <!--</div>-->
-      <!--<div class="actions">-->
-        <!--<%= f.submit %>-->
-      <!--</div>-->
-  <!--<% end %>-->
-<!--</div>-->
-
+<!--
 <div ng-app="recipe" ng-controller="RecipeCtrl">
-  <%= form_for(@recipe) do |f| %>
+<%= form_for(@recipe) do |f| %>
     <% if @recipe.errors.any? %>
-      <div id="error_explanation">
+        <div id="error_explanation">
         <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
 
         <ul>
-          <% @recipe.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-          <% end %>
+        <% @recipe.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
         </ul>
-      </div>
+        </div>
     <% end %>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="well well-sm">
-            <form class="form-horizontal" action="" method="post">
-              <fieldset>
-                <legend class="text-center">Nouvelle recette</legend>
+    <div class="field">
+    Nom de la recette<br>
+    <%= f.text_field :name %>
+    </div>
+    <div class="field">
+    Temps de préparation<br>
+    <%= f.text_field :duration %>
+    </div>
+    <div class="field">
+    Description de la recette<br>
+    <%= f.text_area :description %>
+    </div>
 
-                <!-- Name input-->
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="name">Nom de la recette</label>
-                  <div class="col-md-9">
-                    <%= f.text_field :name, id:'name', type:'text', placeholder:'Nom de la recette', class:'form-control' %>                  </div>
-                </div>
+    <div class="field">
+    Choisissez la categorie<br>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+    <div class="field">
+    Ajoutez les ingrédients<br>
+    <input type="text" ng-model="test">
+    <button type="button" ng-click="addIngredient()"></button>
+    <ul>
+    <li ng-repeat="ingredient in ingredients track by $index">
+    {{ingredient}}
+    </li>
+    </ul>
+    </div>
+    <div class="field">
+    Choisissez la categorie<br>
+    </div>
+    <div class="field">
+    Photo<br>
+    <%= f.file_field :photo %>
+    </div>
+    <div class="actions">
+    <%= f.submit %>
+    </div>
+<% end %>
+-->
 
-                <!-- Email input-->
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="email">Difficulté</label>
-                  <div class="col-md-9">
-                    <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-success">Facile</button>
+
+<div ng-app="recipe" ng-controller="RecipeCtrl">
+  <%= form_for(@recipe) do |f| %>
+      <% if @recipe.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+            <ul>
+              <% @recipe.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="well well-sm">
+              <form class="form-horizontal" action="" method="post">
+                <fieldset>
+                  <legend class="text-center"><h1>Nouvelle recette</h1></legend>
+
+                  <!-- Name input-->
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="name">Nom de la recette</label>
+                    <div class="col-md-9">
+                      <%= f.text_field :name, id: 'name', type: 'text', placeholder: 'Nom de la recette', class: 'form-control' %>
+                      <br>
+                    </div>
+                  </div>
+
+                  <!-- Email input-->
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="email">Difficulté</label>
+                    <div class="col-md-9">
+                      <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-success">
+                          <input type="radio" name="options" id="option1" autocomplete="off" checked>Facile
+                        </label>
+                        <label class="btn btn-warning">
+                          <input type="radio" name="options" id="option2" autocomplete="off">Moyen
+                        </label>
+                        <label class="btn btn-danger">
+                          <input type="radio" name="options" id="option3" autocomplete="off">Compliqué
+                        </label>
                       </div>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-warning">Moyen</button>
+
+                    </div>
+                  </div>
+
+                  <!-- Message body -->
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="message">Description</label>
+                    <div class="col-md-9">
+                      <%= f.text_area :description, class: 'form-control', id: 'message', placeholder: 'Décrire la recette', rows: '5' %>
+                      <br>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="name">Temps</label>
+                    <div class="col-md-3">
+                      <%= f.text_field :preparation, id: 'preparation', type: 'text', placeholder: 'Temps de préparation', class: 'form-control' %>
+                    </div>
+                    <div class="col-md-3">
+                      <%= f.text_field :repose, id: 'repose', type: 'text', placeholder: 'Temps de repos', class: 'form-control' %>
+                    </div>
+                    <div class="col-md-3">
+                      <%= f.text_field :baking, id: 'baking', type: 'text', placeholder: 'Temps de cuisson', class: 'form-control' %>
+                      <br>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="name">Choisissez une photo</label>
+                    <div class="col-md-9 ">
+                      <%= f.file_field :photo, class: 'custom-file-input' %>
+                      <br>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="ingredient">Ajoutez un ingrédient</label>
+                    <div class="col-md-3">
+                      <input ng-model="name" id="name" type="text" placeholder="Nom de l'ingrédient" class="form-control">
+                    </div>
+                    <div class="col-md-3">
+                      <input ng-model="quantity" id=quantity type="text" placeholder="Quantité" class="form-control">
+                    </div>
+                    <div class="col-md-2">
+                      <select class="form-control" ng-model="unity">
+                        <optgroup label="Poid">
+                          <option>kg</option>
+                          <option>g</option>
+                          <option>mg</option>
+                        </optgroup>
+                        <optgroup label="Capacité">
+                          <option>l</option>
+                          <option>cl</option>
+                          <option>ml</option>
+                        </optgroup>
+                        <optgroup label="Cuillère">
+                          <option>soupe</option>
+                          <option>café</option>
+                        </optgroup>
+                      </select>
+                      <br>
+                    </div>
+
+
+                    <div class="col-md-1">
+                      <button ng-click="addIngredient()" type="button" class="btn btn-default fa fa-plus form-control"></button>
+                    </div>
+                    <label class="col-md-3 control-label" for="listeingredient"></label>
+                    <div class="col-md-9">
+                      <div ng-repeat="ingredient in ingredients track by $index">
+                        <input type="hidden" value="{{ingredient.name}}" name="recipe[ingredients_attributes][][name]"/>
+                        <input type="hidden" value="{{ingredient.quantity}}" name="recipe[ingredients_attributes][][quantity]"/>
+                        <input type="hidden" value="{{ingredient.unity}}" name="recipe[ingredients_attributes][][unity]"/>
                       </div>
-                      <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-danger">Compliqué</button>
+                      <div class="alert alert-info">Liste des ingrédients :
+                        <ul>
+                          <li ng-repeat="ingredient in ingredients track by $index">
+                            {{ingredient.name}}
+                            {{ingredient.quantity}}
+                            {{ingredient.unity}}
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- Message body -->
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="message">Description</label>
-                  <div class="col-md-9">
-                    <%= f.text_area :description, class:'form-control', id:'message', placeholder:'Décrire la recette', rows:'5' %>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="name">Temps</label>
-                  <div class="col-md-3">
-                    <%= f.text_field :preparation, id:'preparation', type:'text', placeholder:'Temps de préparation', class:'form-control' %>
-                  </div>
-                  <div class="col-md-3">
-                    <%= f.text_field :repose, id:'repose', type:'text', placeholder:'Temps de repose', class:'form-control' %>
-                  </div>
-                  <div class="col-md-3">
-                    <%= f.text_field :baking, id:'baking', type:'text', placeholder:'Temps de cuisson', class:'form-control' %>
-                  </div>
-                </div>
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="step">Ajoutez une etape</label>
+                    <div class="col-md-8">
+                        <input ng-model="content" id="content" type="text" placeholder="Etape" class="form-control">
+                      <br>
+                    </div>
 
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="message">Ajoutez un ingrédient</label>
-                  <div class="col-md-3">
-
-
-
-                  </div>
-                  <div class="col-md-3">
-                    <input type="text" id="name" name="name" ng-model="test" placeholder="Quantité" class="form-control">
-                  </div>
-                  <div class="col-md-2">
-                    <select class="form-control">
-                      <optgroup label="Poid">
-                        <option>KG</option>
-                        <option>G</option>
-                        <option>MG</option>
-                      </optgroup>
-                      <optgroup label="Capacité">
-                        <option>L</option>
-                        <option>CL</option>
-                        <option>ML</option>
-                      </optgroup>
-                      <optgroup label="Cuillère">
-                        <option>Soupe</option>
-                        <option>Café</option>
-                      </optgroup>
-                    </select>
-                  </div>
-                  <div class="col-md-1">
-                    <button ng-click="addIngredient()" type="button" class="btn btn-default fa fa-plus form-control"></button>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="message">Categorie</label>
-                  <div class="col-md-9">
-                    <%= f.collection_select :category_id, Category.all, :id, :name %>
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label class="col-md-3 control-label" for="message">Photo</label>
-                  <div class="col-md-9">
-                    <select class="form-control">
-                      <div class="field">
-
-                      </div>
-                    </select>
-                  </div>
-                </div>
-
-                <!-- Form actions -->
-                <div class="form-group">
-                  <div class="col-md-12 text-right">
-                    <div class="actions">
-                      <%= f.submit %>
+                    <div class="col-md-1">
+                      <button ng-click="addStep()" type="button" class="btn btn-default fa fa-plus form-control"></button>
                     </div>
                   </div>
-                </div>
-              </fieldset>
-            </form>
+
+                  <label class="col-md-3 control-label" for="listestep"></label>
+                  <div class="col-md-9">
+                    <div ng-repeat="step in steps track by $index">
+                      <input type="hidden" value="{{step.name}}" name="recipe[steps_attributes][][name]"/>
+                      <input type="hidden" value="{{step.content}}" name="recipe[steps_attributes][][content]"/>
+                    </div>
+                    <div class="alert alert-info">Liste des étapes :
+                      <ul>
+                        <li ng-repeat="step in steps track by $index">
+                          {{step.content}}
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label class="col-md-3 control-label" for="categorie">Categorie</label>
+                    <div class="col-md-9">
+                      <%= f.collection_select :category_id, Category.all, :id, :name, class: '' %>
+                    </div>
+                  </div>
+
+
+                  <!-- Form actions -->
+                  <div class="form-group">
+                    <div class="col-md-12 text-right">
+                      <div class="actions">
+                        <%= f.submit 'ng-click': 'addFinal()' %>
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   <% end %>
 </div>

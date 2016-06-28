@@ -10,7 +10,6 @@ body {
     margin-bottom: 20Px;
 }
 .lib-panel img {
-    width: 100%;
     background-color: transparent;
 }
 
@@ -82,6 +81,8 @@ body {
 }
 
 .maxsize img {
+    width: 100%;
+
     max-height:400px;
     object-fit: cover;
     -webkit-transition: 0.4s ease;

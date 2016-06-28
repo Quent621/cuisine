@@ -101,3 +101,6 @@
     color: rgb(242, 242, 242);
 }
 
+div.row{
+    max-width: 1180px;
+}

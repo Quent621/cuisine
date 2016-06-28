@@ -3,27 +3,63 @@ var app = angular.module('recipe', []);
 app.controller('RecipeCtrl', ['$scope', '$http', function ($scope, $http) {
 
     $scope.ingredients = [];
-
     $scope.addIngredient = function () {
-        data = {ingredient: {name: $scope.test}};
-        $http.post('/ingredients.json', data)
-            .success(function (response, status, headers, config) {
-                console.log(status);
-                console.log(response);
-                $scope.ingredients.push(response.name);
-                $scope.test = '';
-            })
-            .error(function (response, status, headers, config) {
-                console.log('Error');
-            });
+        var ingredient = {
+            name: angular.copy($scope.name),
+            quantity: angular.copy($scope.quantity),
+            unity: angular.copy($scope.unity)
+        };
+        $scope.name = '';
+        $scope.quantity = '';
+        $scope.unity = '';
+        $scope.ingredients.push(ingredient);
+        $scope.addFinal = function () {
+            data = {ingredient: {name: $scope.name, quantity: $scope.quantity, unity: $scope.unity}};
+            $http.post('/ingredients.json', data);
+            data2 = {step: {content: $scope.content}};
+            $http.post('/steps.json', data2)
+        }
     };
+
+
+    $scope.steps = [];
+    $scope.addStep = function () {
+        var step = {
+            content: angular.copy($scope.content)
+        };
+        $scope.content = '';
+        $scope.steps.push(step);
+    };
+
+
 }]);
 
 
-$(document).ready(function() {
-    $(".btn-pref .btn").click(function () {
-        $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-        // $(".tab").addClass("active"); // instead of this do the below
-        $(this).removeClass("btn-default").addClass("btn-primary");
-    });
-});
+
+/*    $scope.ingredients = [];
+ $scope.addFinal = function () {
+
+ data = {ingredient: {name: $scope.name, quantity: $scope.quantity, unity: $scope.unity}};
+ $http.post('/ingredients.json', data)
+ .success(function (response, status, headers, config) {
+
+ $scope.ingredients.push(ingredient);
+ })
+ .error(function (response, status, headers, config) {
+ console.log('Error');
+ });
+ }*/
+
+/*
+data = {step: {content: $scope.content}};
+$http.post('/steps.json', data)
+    .success(function (response, status, headers, config) {
+
+    })
+    .error(function (response, status, headers, config) {
+        console.log('Error');
+    });*/
+
+
+
+

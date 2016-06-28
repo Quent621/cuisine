@@ -32,6 +32,10 @@
 <!--<%= link_to 'Back', recipes_path %>-->
 
 <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Amatic+SC:700|Montserrat' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Playfair+Display' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Montserrat' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Lobster' %>
+<%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Open+Sans:300' %>
 
 <div class="container">
   <hr>
@@ -59,6 +63,16 @@
             </div>
             <div class="lib-row lib-desc">
               <%= @recipe.description %>
+            </div>
+            <div class="small-2 large-4 columns">
+              <div id="hintDiv"></div>
+
+              <br>
+                <% if current_user %>
+                    <%= rating_for @recipe, "original_score", disable_after_rate: true, enable_half: true %>
+                <% else %>
+                    <%= rating_for @recipe, "original_score" %>
+                <% end %>
             </div>
             <br>
             <div class="lib-row lib-social">
@@ -94,6 +108,7 @@
           <span aria-hidden="true"></span>
         </button>
       </div>
+
     </div>
     <div class="well">
       <div class="tab-content">
@@ -102,12 +117,42 @@
             <div class="col-md-12">
               <div class="test col-md-6">
                 <h2>Ingrédients</h2>
-                <p>Post haec indumentum regale quaerebatur et ministris fucandae purpurae tortis confessisque pectoralem tuniculam sine manicis textam, Maras nomine quidam inductus est ut appellant Christiani diaconus, cuius prolatae litterae scriptae Graeco sermone ad Tyrii textrini praepositum celerari speciem perurgebant quam autem non indicabant denique etiam idem ad usque discrimen vitae vexatus nihil fateri conpulsus est.</p>
+                <table class="table table-striped custab">
+                  <% @recipe.ingredients.each do |ingredient| %>
+                      <tbody>
+                      <tr>
+                        <td>- <%= ingredient.name %></td>
+                        <td>- <%= ingredient.quantity %> <%= ingredient.unity %></td>
+                      </tr>
+                      </tbody>
+                  <% end %>
+                </table>
               </div>
               <div class="lib-ingredient-seperator"></div>
               <div class="col-md-6">
                 <h2>Préparation</h2>
-                <p>Vide, quantum, inquam, fallare, Torquate. oratio me istius philosophi non offendit; nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; et tamen ego a philosopho, si afferat eloquentiam, non asperner, si non habeat, non admodum flagitem. re mihi non aeque satisfacit, et quidem locis pluribus. sed quot homines, tot sententiae; falli igitur possumus.</p>
+                <br>
+                <p>
+                  <strong>Temps de préparation :</strong>
+                  <%= @recipe.preparation %>
+                </p>
+                <p>
+                  <strong>Temps de repos :</strong>
+                  <%= @recipe.repose %>
+                </p>
+                <p>
+                  <strong>Temps de cuisson :</strong>
+                  <%= @recipe.baking %>
+                </p>
+                <p>
+                  <strong>Nombre totale d'étapes :</strong>
+                  <%= @recipe.steps.count %>
+                </p>
+
+                <% @recipe.steps.each_with_index do |step, index| %>
+                    <h3>Etape <%= "#{index + 1}" %></h3>
+                    <h5><%= "#{step.content}" %></h5>
+                <% end %>
               </div>
             </div>
           </div>
@@ -121,5 +166,101 @@
         </div>
       </div>
     </div>
+
+      <div class="col-md-12">
+        <div class="widget-area no-padding blank">
+          <div class="status-upload">
+            <form>
+              <textarea placeholder="Ecrire un commentaire" ></textarea>
+              <ul>
+                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Video"><i class="fa fa-video-camera"></i></a></li>
+                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="Picture"><i class="fa fa-picture-o"></i></a></li>
+              </ul>
+              <button type="submit" class="btn btn-success green"><i class="fa fa-share"></i> Share</button>
+            </form>
+          </div><!-- Status Upload  -->
+        </div><!-- Widget Area -->
+      </div>
+
+    </div>
+
+
+      <div class="message-item" id="m3">
+        <div class="message-inner">
+          <div class="message-head clearfix">
+            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=monu"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+            <div class="user-detail">
+              <h5 class="handle">monu</h5>
+              <div class="post-meta">
+                <div class="asker-meta">
+                  <span class="qa-message-what"></span>
+											<span class="qa-message-when">
+												<span class="qa-message-when-data">Oct 24, 2013</span>
+											</span>
+											<span class="qa-message-who">
+												<span class="qa-message-who-pad">by </span>
+												<span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=monu">monu</a></span>
+											</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="qa-message-content">
+            Suspendisse varius mi consectetur nulla volutpat, nec fermentum turpis vehicula. Curabitur dapibus odio mauris, vitae accumsan sapien auctor non. Duis tempus ante id nulla vestibulum mattis.
+          </div>
+        </div></div>
+
+      <div class="message-item" id="m2">
+        <div class="message-inner">
+          <div class="message-head clearfix">
+            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=Fynn"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+            <div class="user-detail">
+              <h5 class="handle">Fynn</h5>
+              <div class="post-meta">
+                <div class="asker-meta">
+                  <span class="qa-message-what"></span>
+											<span class="qa-message-when">
+												<span class="qa-message-when-data">Oct 24, 2013</span>
+											</span>
+											<span class="qa-message-who">
+												<span class="qa-message-who-pad">by </span>
+												<span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=Fynn">Fynn</a></span>
+											</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="qa-message-content">
+            Nunc ante neque, feugiat at dictum ut, dignissim sed sapien. Pellentesque congue eu nisl sit amet cursus. Integer dapibus adipiscing metus ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </div>
+        </div></div>
+
+      <div class="message-item" id="m1">
+        <div class="message-inner">
+          <div class="message-head clearfix">
+            <div class="avatar pull-left"><a href="./index.php?qa=user&qa_1=admin"><img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"></a></div>
+            <div class="user-detail">
+              <h5 class="handle">admin</h5>
+              <div class="post-meta">
+                <div class="asker-meta">
+                  <span class="qa-message-what"></span>
+											<span class="qa-message-when">
+												<span class="qa-message-when-data">Oct 24, 2013</span>
+											</span>
+											<span class="qa-message-who">
+												<span class="qa-message-who-pad">by </span>
+												<span class="qa-message-who-data"><a href="./index.php?qa=user&qa_1=admin">admin</a></span>
+											</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="qa-message-content">
+            Nunc ante neque, feugiat at dictum ut, dignissim sed sapien. Pellentesque congue eu nisl sit amet cursus. Integer dapibus adipiscing metus ac vehicula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus fermentum iaculis mi, non dapibus nulla eleifend sed. Etiam ac commodo leo. Donec non sem id tellus mattis convallis. Morbi dapibus nulla ac dui lacinia,
+          </div>
+        </div></div>
+
+
+  </div>
   </div>
 </div>

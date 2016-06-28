@@ -1,19 +1,18 @@
 # == Schema Information
 #
-# Table name: ingredients
+# Table name: steps
 #
 #  id         :integer          not null, primary key
 #  name       :string
+#  content    :text
+#  recipe_id  :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  quantity   :integer
-#  unity      :integer
-#  recipe_id  :integer
 #
 
 require 'test_helper'
 
-class IngredientTest < ActiveSupport::TestCase
+class StepTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
