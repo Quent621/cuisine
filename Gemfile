@@ -25,6 +25,7 @@ gem 'omniauth-facebook'
 gem 'materialize-sass'
 gem 'annotate'
 gem 'ratyrate'
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

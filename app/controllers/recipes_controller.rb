@@ -4,11 +4,13 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
+    @recipes= Recipe.order(:created_at).page params[:page]
     if params[:search]
       @recipes = Recipe.search(params[:search]).order("created_at DESC")
     else
       @recipes = Recipe.all.order("created_at DESC")
     end
+
   end
 
   # GET /recipes/1
@@ -67,6 +69,6 @@ class RecipesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def recipe_params
-    params.require(:recipe).permit(:name, :description, :duration, :photo, :user_id, :category_id, :ingredient_id, :difficulty, :preparation, :repose, :baking, steps_attributes: [:name, :content], ingredients_attributes: [:name, :quantity, :unity])
+    params.require(:recipe).permit(:name, :description, :duration, :photo, :user_id, :category_id, :ingredient_id, :difficulty, :preparation, :repose, :baking, :page, steps_attributes: [:name, :content], ingredients_attributes: [:name, :quantity, :unity])
   end
 end

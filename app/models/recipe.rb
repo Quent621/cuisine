@@ -24,12 +24,13 @@ class Recipe < ActiveRecord::Base
   has_attached_file :photo, styles: {medium: "300x300>", thumb: "150x150>" }, default_url: 'missing/thumb.png'
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
+  paginates_per 3
   ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 
   belongs_to :user
   belongs_to :category
-  has_many :ingredients
-  has_many :steps
+  has_many :ingredients, dependent: :destroy
+  has_many :steps, dependent: :destroy
 
   accepts_nested_attributes_for :ingredients
   accepts_nested_attributes_for :steps

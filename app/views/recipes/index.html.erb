@@ -31,6 +31,9 @@
 <!--</tbody>-->
 <!--</table>-->
 
+<%= paginate @recipes %>
+
+
 <div class="recipe">
   <center><%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
@@ -56,11 +59,11 @@
                   <div style="clear: both"></div>
                   <p><%= recipe.description %></p>
 
-                  <p><%= recipe.created_at %> | 2 comments | <%= recipe.category.name if recipe.category.present? %></p>
+                  <p>Créer le <%= recipe.created_at.strftime("%d %m %Y") %> | 2 commentaires | <%= recipe.category.name if recipe.category.present? %></p>
 
                   <%= link_to 'Voir la recette !', recipe %>
-                  <%= link_to 'Edit', edit_recipe_path(recipe) %>
-                  <%= link_to 'Destroy', recipe, method: :delete, data: {confirm: 'Are you sure?'} %>
+                  <%= link_to 'Modifier', edit_recipe_path(recipe) %> |
+                  <%= link_to 'Supprimer', recipe, method: :delete, data: {confirm: 'Are you sure?'} %>
                 </div>
               </div>
             </div>

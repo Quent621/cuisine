@@ -89,18 +89,18 @@
                   <div class="form-group">
                     <label class="col-md-3 control-label" for="email">Difficulté</label>
                     <div class="col-md-9">
-                      <div class="btn-group btn-group-justified" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-success">Facile</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-warning">Moyen</button>
-                        </div>
-                        <div class="btn-group" role="group">
-                          <button type="button" class="btn btn-danger">Compliqué</button>
-                        </div>
+                      <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-success">
+                          <input type="radio" name="options" id="option1" autocomplete="off" checked>Facile
+                        </label>
+                        <label class="btn btn-warning">
+                          <input type="radio" name="options" id="option2" autocomplete="off">Moyen
+                        </label>
+                        <label class="btn btn-danger">
+                          <input type="radio" name="options" id="option3" autocomplete="off">Compliqué
+                        </label>
                       </div>
-                      <br>
+
                     </div>
                   </div>
 
@@ -130,6 +130,7 @@
                     <label class="col-md-3 control-label" for="name">Choisissez une photo</label>
                     <div class="col-md-9 ">
                       <%= f.file_field :photo, class: 'custom-file-input' %>
+                      <br>
                     </div>
                   </div>
 
