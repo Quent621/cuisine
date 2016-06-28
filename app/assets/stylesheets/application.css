@@ -24,7 +24,7 @@
 }
 
 .navbar, .dropdown-menu {
-    background-color: rgba(188, 213, 209, 1);
+    background-color: rgb(178, 213, 212);
     font-family: 'Roboto', sans-serif;
     border-bottom-color: rgba(255, 255, 255, 0.4);
 }

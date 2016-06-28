@@ -64,6 +64,16 @@
             <div class="lib-row lib-desc">
               <%= @recipe.description %>
             </div>
+            <div class="small-2 large-4 columns">
+              <div id="hintDiv"></div>
+
+              <br>
+                <% if current_user %>
+                    <%= rating_for @recipe, "original_score", disable_after_rate: true, enable_half: true %>
+                <% else %>
+                    <%= rating_for @recipe, "original_score" %>
+                <% end %>
+            </div>
             <br>
             <div class="lib-row lib-social">
               <div class="text-center center-block">
@@ -98,6 +108,7 @@
           <span aria-hidden="true"></span>
         </button>
       </div>
+
     </div>
     <div class="well">
       <div class="tab-content">
@@ -108,12 +119,12 @@
                 <h2>Ingrédients</h2>
                 <table class="table table-striped custab">
                   <% @recipe.ingredients.each do |ingredient| %>
-                    <tbody>
-                    <tr>
-                      <td>- <%= ingredient.name %></td>
-                      <td>- <%= ingredient.quantity %> <%= ingredient.unity %></td>
-                    </tr>
-                    </tbody>
+                      <tbody>
+                      <tr>
+                        <td>- <%= ingredient.name %></td>
+                        <td>- <%= ingredient.quantity %> <%= ingredient.unity %></td>
+                      </tr>
+                      </tbody>
                   <% end %>
                 </table>
               </div>

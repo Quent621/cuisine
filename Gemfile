@@ -24,8 +24,7 @@ gem 'paperclip'
 gem 'omniauth-facebook'
 gem 'materialize-sass'
 gem 'annotate'
-gem 'ratyrate', :github => 'wazery/ratyrate', :branch => 'development'
-
+gem 'ratyrate'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

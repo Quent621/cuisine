@@ -40,6 +40,12 @@ aside .col-md-3 {
   transition: all 1s;
 }
 
+.article_big_img > div.star{
+    position: absolute;
+    margin-left: 8px;
+    margin-top: 5px;
+}
+
 .zoomarticle:hover > .article_big_img > img {
   transform: scale(1.03);
 }
@@ -93,3 +99,8 @@ aside .col-md-3 {
 table.table.table-striped.custab{
     margin-top: 60px;
 }
+div.star{
+    text-align: center;
+
+}
+
