@@ -10,6 +10,7 @@
               <li class="zoomarticle">
                 <div class="article_big_img">
                   <%= image_tag recipe.photo.url(:medium), class: 'media-object' %>
+                  <%= rating_for recipe, "original_score" %>
                 </div>
               </li>
             </a>
@@ -23,17 +24,9 @@
               <div style="clear: both"></div>
               <p><%= recipe.description %></p>
               <ul class="list-inline list-unstyled">
-                <li><span><i class="glyphicon glyphicon-calendar"></i><%= recipe.created_at %> </span></li>
+                <li><span><i class="glyphicon glyphicon-calendar"></i>Créer le <%= recipe.created_at.strftime("%d %m %Y") %> </span></li>
                 <li>|</li>
                 <span><i class="glyphicon glyphicon-comment"></i> 2 comments</span>
-                <li>|</li>
-                <li>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star-half-o"></span>
-                  <span class="fa fa-star-o"></span>
-                </li>
                 <li>|</li>
                 <li>
                   <%= recipe.category.name if recipe.category.present? %>
