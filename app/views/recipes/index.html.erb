@@ -31,7 +31,6 @@
 <!--</tbody>-->
 <!--</table>-->
 
-<%= paginate @recipes %>
 
 
 <div class="recipe">
@@ -84,6 +83,8 @@
           }(document, "script", "twitter-wjs");</script>
         </aside>
       </div>
+      <%= paginate @recipes %>
+
     </div>
     <br>
     <%= link_to 'New Recipe', new_recipe_path %>

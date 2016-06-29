@@ -78,10 +78,10 @@
             <div class="lib-row lib-social">
               <div class="text-center center-block">
                 <div class="txt-railway">Partagez cette recette !</div>
-                <a href="https://www.facebook.com/bootsnipp"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
-                <a href="https://twitter.com/bootsnipp"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
-                <a href="https://plus.google.com/+Bootsnipp-page"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
-                <a href="mailto:bootsnipp@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
+                <a href="https://www.facebook.com/"><i id="social-fb" class="fa fa-facebook-square fa-3x social"></i></a>
+                <a href="https://twitter.com/"><i id="social-tw" class="fa fa-twitter-square fa-3x social"></i></a>
+                <a href="https://plus.google.com/"><i id="social-gp" class="fa fa-google-plus-square fa-3x social"></i></a>
+                <a href="mailto:myeggbox@gmail.com"><i id="social-em" class="fa fa-envelope-square fa-3x social"></i></a>
               </div>
             </div>
           </div>
@@ -148,17 +148,36 @@
                   <strong>Nombre totale d'étapes :</strong>
                   <%= @recipe.steps.count %>
                 </p>
+                <br>
+
 
                 <% @recipe.steps.each_with_index do |step, index| %>
-                    <h3>Etape <%= "#{index + 1}" %></h3>
-                    <h5><%= "#{step.content}" %></h5>
+                    <!--<h4>Etape <%= "#{index + 1}" %></h4>-->
+                    <h5>- <%= "#{step.content}" %></h5>
                 <% end %>
               </div>
             </div>
           </div>
         </div>
         <div class="tab-pane fade in" id="tab2">
-          <h3>Valeur</h3>
+          <h3>Valeurs nutritionnels :</h3>
+          <br>
+            <table class="table table-striped custab">
+              <tbody>
+              <tr>
+                <td>Protéines	13,2 g	11,7 </td>
+                <p>Glucides	20,8 g	29,5 g</p>
+                <p>- dont sucres	2,5 g	2,4 g</p>
+                <p>- dont amidon	18,3 g	26,9 g</p>
+                <p>- dont fibres alimentaires	2 g	2 g</p>
+                <p> Lipides	8,5 g	12,2 g</p>
+                <p>- dont cholestérol	29,0 mg	44,4 mg</p>
+                <p>- dont acides gras saturés	2,8 g	4,7</p>
+                <p>- dont acides gras monoinsaturés	3,3 g	4,1 g</p>
+                <p>- dont acides gras polyinsaturés	0,5 g	1,9 g</p>
+                <p>Eau	54 g	43 g</p>
+                <p>Alcool	0 g	0 g</p>
+            </table>
         </div>
         <div class="tab-pane fade in" id="tab3">
           <h3>Regardez cette video pour apprendre</h3>

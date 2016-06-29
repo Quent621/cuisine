@@ -32,7 +32,9 @@
                   </div>
                   <div class="info">
                     <div class="title">
-                      <a target="_blank" href="http://scripteden.com/"><%= category.name %></a>
+                      <%= link_to category_recipes_path(category), style: 'display: block;' do %>
+                        <%= category.name %>
+                      <% end %>
                     </div>
                     <div class="desc">Toutes les recettes pour <%= category.name %></div>
                   </div>

@@ -4,19 +4,18 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes= Recipe.order(:created_at).page params[:page]
     if params[:search]
       @recipes = Recipe.search(params[:search]).order("created_at DESC")
     else
       @recipes = Recipe.all.order("created_at DESC")
     end
+    @recipes= Recipe.all.order(:created_at).page params[:page]
 
   end
 
   # GET /recipes/1
   # GET /recipes/1.json
   def show
-
   end
 
   # GET /recipes/new
