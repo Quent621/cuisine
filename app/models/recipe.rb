@@ -25,6 +25,7 @@ class Recipe < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 
   paginates_per 5
+
   ratyrate_rateable 'visual_effects', 'original_score', 'director', 'custome_design'
 
   belongs_to :user
