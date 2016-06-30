@@ -2,6 +2,9 @@
 = recipe.name-->
 <div class="title"></div>
 <div id="loginbox">
+  <div class="newrecipe">
+    <%= link_to 'Ajouter une recette !', new_recipe_path, class:'btn btn-secondary col-md-12', type:'button' %>
+  </div>
   <% @recipes.find_each do |recipe| %>
       <div class="container">
         <div class="well">
@@ -40,9 +43,9 @@
           </div>
         </div>
       </div>
+
   <% end %>
+
 </div>
 
 <br>
-
-<%= link_to 'New Recipe', new_recipe_path %>

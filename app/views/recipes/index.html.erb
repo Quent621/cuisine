@@ -34,12 +34,20 @@
 
 
 <div class="recipe">
+
   <center><%= form_tag(recipes_path, :method => "get", id: "search-form") do %>
         <%= text_field_tag :search, params[:search], placeholder: "Search Recipes" %>
         <%= submit_tag "Search", :name => nil %></center><br>
     <% end %>
+
+
     <div class="row">
+      <div class="newrecipe">
+        <%= link_to 'Ajouter une recette !', new_recipe_path, class:'btn btn-secondary col-md-12', type:'button' %>
+      </div>
+
       <div class="col-md-9">
+
         <% @recipes.each do |recipe| %>
             <div class="well">
               <div class="media">
@@ -58,7 +66,8 @@
                   <div style="clear: both"></div>
                   <p><%= recipe.description %></p>
 
-                  <p>Créer le <%= recipe.created_at.strftime("%d %m %Y") %> | 2 commentaires | <%= recipe.category.name if recipe.category.present? %></p>
+                  <p>Créer le <%= recipe.created_at.strftime("%d %m %Y") %> | 2 commentaires
+                    | <%= recipe.category.name if recipe.category.present? %></p>
 
                   <%= link_to 'Voir la recette !', recipe %>
                   <%= link_to 'Modifier', edit_recipe_path(recipe) %> |
@@ -67,6 +76,7 @@
               </div>
             </div>
         <% end %>
+        <%= paginate @recipes, :theme => 'twitter-bootstrap' %>
       </div>
       <div class="col-md-3">
         <aside>
@@ -83,9 +93,8 @@
           }(document, "script", "twitter-wjs");</script>
         </aside>
       </div>
-      <%= paginate @recipes %>
+
 
     </div>
     <br>
-    <%= link_to 'New Recipe', new_recipe_path %>
     </div>

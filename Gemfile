@@ -26,6 +26,7 @@ gem 'materialize-sass'
 gem 'annotate'
 gem 'ratyrate'
 gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
