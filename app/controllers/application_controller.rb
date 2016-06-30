@@ -5,9 +5,10 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+
+
   def after_sign_in_path_for(resource)
-    sign_in_url = new_user_session_url
-    if request.referer == sign_in_url
+    if request.referer == new_user_session_url || request.referer == new_user_registration_url
       super
     else
       stored_location_for(resource) || request.referer || root_path
